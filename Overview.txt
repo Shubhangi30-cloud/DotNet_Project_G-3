@@ -1,0 +1,17 @@
+database: 
+
+authentication - user table(userid(identity),roleid(foreignkey),username,pass), role table(role id(primary key),rolename)
+vendors and customers - customer table(custname,dob,address,gender,phoneno), vendor table(vendorid(identity),name,address,phoneno,emailid), 
+                             product table(vendor id,brand id,brand name,qty available,price) ,(optional)products bought()
+
+mvc:
+
+authentication controller - login,signup(add a model in mvc on my own(name,pass))
+admin controller - display cust table, display vendor table, display prod table(create,delete,details)
+vendor controller - display vendor table(edit ones own,details),product details of that specific vendor(edit,details)
+customer controller - product table(details)
+
+webapi:
+
+admin controller - products bought table(optional)
+customer controller - buying from product table,account details
