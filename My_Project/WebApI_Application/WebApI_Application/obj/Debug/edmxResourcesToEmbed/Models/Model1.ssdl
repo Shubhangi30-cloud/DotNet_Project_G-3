@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ETSDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admins">
+    <Key>
+      <PropertyRef Name="admin_id" />
+    </Key>
+    <Property Name="admin_id" Type="int" Nullable="false" />
+    <Property Name="admin_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ETSDB.dbo.Customers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="customer_id" />
+    </Key>
+    <Property Name="customer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customer_name" Type="varchar" MaxLength="100" />
+    <Property Name="phone_no" Type="int" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="dob" Type="date" />
+    <Property Name="account_balance" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ETSDB.dbo.Products' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="vendor_id" Type="int" />
+    <Property Name="brand_id" Type="int" />
+    <Property Name="brand_name" Type="varchar" MaxLength="255" />
+    <Property Name="brand_price" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="availability" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ETSDB.dbo.Vendors' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Vendors">
+    <Key>
+      <PropertyRef Name="vendor_id" />
+    </Key>
+    <Property Name="vendor_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="vendor_name" Type="varchar" MaxLength="100" />
+    <Property Name="vendor_verification_card_id" Type="int" />
+    <Property Name="phone_no" Type="int" />
+    <Property Name="vendor_password" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityContainer Name="ETSDBModelStoreContainer">
+    <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Customers].[customer_id] AS [customer_id], 
+    [Customers].[customer_name] AS [customer_name], 
+    [Customers].[phone_no] AS [phone_no], 
+    [Customers].[password] AS [password], 
+    [Customers].[dob] AS [dob], 
+    [Customers].[account_balance] AS [account_balance]
+    FROM [dbo].[Customers] AS [Customers]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Products" EntityType="Self.Products" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Products].[product_id] AS [product_id], 
+    [Products].[vendor_id] AS [vendor_id], 
+    [Products].[brand_id] AS [brand_id], 
+    [Products].[brand_name] AS [brand_name], 
+    [Products].[brand_price] AS [brand_price], 
+    [Products].[availability] AS [availability]
+    FROM [dbo].[Products] AS [Products]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Vendors" EntityType="Self.Vendors" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Vendors].[vendor_id] AS [vendor_id], 
+    [Vendors].[vendor_name] AS [vendor_name], 
+    [Vendors].[vendor_verification_card_id] AS [vendor_verification_card_id], 
+    [Vendors].[phone_no] AS [phone_no], 
+    [Vendors].[vendor_password] AS [vendor_password]
+    FROM [dbo].[Vendors] AS [Vendors]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
