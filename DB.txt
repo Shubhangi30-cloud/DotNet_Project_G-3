@@ -1,32 +1,52 @@
 Create Database ETradingSystemDB;
 use ETradingSystemDB;
 
+------------------------------------------------------------------
 CREATE TABLE Admins (
     admin_id INT PRIMARY KEY,
     admin_name VARCHAR(50) NOT NULL,
     password VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE Customer (
-    customer_id INT ,
-    customer_name VARCHAR(100),
-    password VARCHAR(50),
-    dob_date DATE
+insert into Admins values (9845, 'Surbhi','Surbhi$123');
+-------------------------------------------------------------------
+
+CREATE TABLE Customer_signup (
+    Customer_Id INT ,
+    Customer_Name VARCHAR(100),
+    Phone_No INT PRIMARY KEY,
+    Password VARCHAR(50),
+    DOB DATE
 );
 
-CREATE TABLE vendor (
-    vendor_Id INT IDENTITY,
-    vendor_password VARCHAR(100),
-    vendor_name VARCHAR(100),
-    address VARCHAR(100),
-    Phone_no int,
-    Email_id VARCHAR(100),
+CREATE TABLE Customer_Login(
+   Customer_Id INT FOREIGN KEY REFERENCES Customer_signup(Phone_no),
+   Password VARCHAR(50)
+);
+----------------------------------------------------------------------
+
+CREATE TABLE Vendor_signup (
+    Vendor_Id INT IDENTITY,
+    Vendor_Password VARCHAR(100),
+    Vendor_Name VARCHAR(100),
+    Vendor_Verification_card_id INT UNIQUE,
+    Phone_no int PRIMARY KEY,
 );
 
-CREATE TABLE product (
-    vendor_id INT ,
-    brand_id INT,
-    brand_name VARCHAR(255),
-    brand_price DECIMAL(10, 2) ,
-    availability BIT --0 OR 1
+CREATE TABLE Vendor_login(
+   Vendor_Id INT FOREIGN KEY REFERENCES Vendor_signup(Phone_no),
+   Password VARCHAR(50)
+);
+
+------------------------------------------------------------------------
+
+CREATE TABLE Product (
+    Vendor_id INT FOREIGN KEY REFERENCES Vendor_signup(Phone_no),
+    Brand_id INT,
+    Brand_name VARCHAR(255),
+    Image_url NVARCHAR (MAX),
+    Brand_price DECIMAL(10, 2) ,
+    Availability BIT --0 OR 1
+);
+
 );
