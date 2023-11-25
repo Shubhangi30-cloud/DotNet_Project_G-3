@@ -49,7 +49,7 @@ namespace ETradingSystem.Controllers
 
         public ActionResult Delete(int id)
         {
-            HttpResponseMessage response = GlobalVariables.WebApiClient.DeleteAsync("Department/" + id.ToString()).Result;
+            HttpResponseMessage response = GlobalVariables.WebApiClient.DeleteAsync("Vendor/" + id.ToString()).Result;
             return RedirectToAction("Index");
         }
     }
