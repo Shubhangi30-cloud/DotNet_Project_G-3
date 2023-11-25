@@ -1,0 +1,89 @@
+﻿/* StyleSheet1.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: rebeccapurple;
+}
+
+.jumbotron {
+    background-color: darkmagenta;
+    color: goldenrod;
+    padding: 60px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    background-color: #2c3e50;
+    border-color: #2c3e50;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.navbar {
+    background-color: gold;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #ffffff;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #ffffff;
+}
+
+    .navbar-inverse .navbar-nav > li > a:hover,
+    .navbar-inverse .navbar-nav > li > a:focus {
+        background-color: navy;
+    }
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: darkorchid;
+    color: #ffffff;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+
+.container {
+    background-color: indigo;
+    color: navajowhite;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .jumbotron {
+        padding: 40px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+}
+
+.jumbotron {
+    text-align: center;
+}
+
+    .jumbotron h1,
+    .jumbotron p {
+        margin-bottom: 20px;
+    }
+
+.btn-primary {
+    background-color: #3498db; /* Change this to your desired color */
+    border-color: #3498db; /* Matching border color */
+    border-block-end-style: groove;
+}
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+        background-color: #2c3e50; /* Change this to your desired hover color */
+        border-color: #2c3e50; /* Matching border hover color */
+    }
+

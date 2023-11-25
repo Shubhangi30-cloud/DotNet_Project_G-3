@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Register";
+}
+
+<div class="container">
+    <h2>Register</h2>
+    <form>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter your username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter your password">
+        </div>
+        <div class="form-group">
+            <label>User Type:</label>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="userType" value="customer" checked> Customer
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="userType" value="vendor"> Vendor
+                </label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Register</button>
+    </form>
+</div>
