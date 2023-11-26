@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Role";
+}
+
+<h2>Role</h2>
+
+
+<div>
+    <button onclick="location.href='@Url.Action("Login","AdminActions")'">Admin</button><br />
+    <button onclick="location.href='@Url.Action("Login", "VendorActions")'">Vendor</button><br />
+    <button onclick="location.href='@Url.Action("Login", "CustomerActions")'">Customer</button>
+</div>
