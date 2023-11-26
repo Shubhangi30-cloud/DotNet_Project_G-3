@@ -1,0 +1,35 @@
+create database ETrading
+
+create table Admin
+(AdminName varchar(100),
+Password varchar(max) not null)
+insert into admin values('ETSAdmin','Admin@123')
+
+create table Customer
+(CustomerId int identity(1,1),
+CustomerName varchar(50),
+EmailId nvarchar(max) not null,
+PhoneNo bigint not null unique,
+Address nvarchar(max),
+AccountBalance float not null,
+Password varchar(max))
+insert into Customer values('Vatsa','vatsa@gmail.com',7548903456,'5,Balanagar,Hyderabad',25000,'Vatsa@123')
+
+select * from Customer
+
+create table Vendor
+(VendorId int identity(1,1),
+VendorName varchar(50),
+EmailId varchar(max) not null,
+PhoneNo bigint not null unique,
+Address varchar(max),Password varchar(max))
+insert into Vendor values('Hannah','hannah@gmail.com',7520513456,'10,Tnagar,Chennai','Hannah@123')
+
+create table Product
+(ProductId int identity(1,1),
+Vendorid int,
+BrandName varchar(100) not null,
+Category varchar(100) not null,
+Price float not null,
+Availability varchar(max) not null)
+insert into Product values(1,'Louis Vuitton','Handbags',500000,'Yes')
