@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Welcome, Admin!</h2>
+
+<div>
+    <p>What would you like to view?</p>
+    <ul>
+        <li>@Html.ActionLink("View Product List", "Index", "Product")</li>
+        <li>@Html.ActionLink("View Vendor List", "Index", "Vendor")</li>
+        <li>@Html.ActionLink("View Customer List", "Index", "Customer")</li>
+    </ul>
+</div>
