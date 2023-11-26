@@ -60,7 +60,6 @@ namespace WebApI_Application.Controllers
             if (vendor == null)
             {
                 return NotFound();
-
             }
 
             db.Vendors.Remove(vendor);
