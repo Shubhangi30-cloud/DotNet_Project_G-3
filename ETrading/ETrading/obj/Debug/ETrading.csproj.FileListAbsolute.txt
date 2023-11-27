@@ -164,6 +164,7 @@ D:\Github\DotNet_Project_G-3\ETrading\ETrading\obj\Debug\ETrading.csproj.CoreCom
 D:\Github\DotNet_Project_G-3\ETrading\ETrading\obj\Debug\ETrading.csproj.CopyComplete
 D:\Github\DotNet_Project_G-3\ETrading\ETrading\obj\Debug\ETrading.dll
 D:\Github\DotNet_Project_G-3\ETrading\ETrading\obj\Debug\ETrading.pdb
+<<<<<<< HEAD
 C:\Users\shubhangp\Desktop\Final_Project\DotNet_Project_G-3\ETrading\ETrading\bin\ETrading.dll.config
 C:\Users\shubhangp\Desktop\Final_Project\DotNet_Project_G-3\ETrading\ETrading\bin\ETrading.dll
 C:\Users\shubhangp\Desktop\Final_Project\DotNet_Project_G-3\ETrading\ETrading\bin\ETrading.pdb
@@ -247,3 +248,5 @@ C:\Users\shubhangp\Desktop\Final_Project\DotNet_Project_G-3\ETrading\ETrading\ob
 C:\Users\shubhangp\Desktop\Final_Project\DotNet_Project_G-3\ETrading\ETrading\obj\Debug\ETrading.csproj.CopyComplete
 C:\Users\shubhangp\Desktop\Final_Project\DotNet_Project_G-3\ETrading\ETrading\obj\Debug\ETrading.dll
 C:\Users\shubhangp\Desktop\Final_Project\DotNet_Project_G-3\ETrading\ETrading\obj\Debug\ETrading.pdb
+=======
+>>>>>>> 35c54e770245baeca220685c6275304c12765f57

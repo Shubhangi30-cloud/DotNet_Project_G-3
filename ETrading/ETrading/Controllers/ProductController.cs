@@ -34,7 +34,11 @@ namespace ETrading.Controllers
             return View(product);
         }
 
+<<<<<<< HEAD
         //[Authorize(Roles = "Admin,Vendor")]
+=======
+        [Authorize(Users  = "Admin,Vendor")]
+>>>>>>> 35c54e770245baeca220685c6275304c12765f57
         public ActionResult Create()
         {
             return View();
@@ -44,16 +48,22 @@ namespace ETrading.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ProductId,VendorId,BrandName,Category,Price,Availability")] Product product)
         {
+            db.GetValidationErrors();
             if (ModelState.IsValid)
             {
                 db.Products.Add(product);
+                
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(product);
         }
+<<<<<<< HEAD
         //[Authorize(Roles = "Admin,Vendor")]
+=======
+        [Authorize(Users = "Admin,Vendor")]
+>>>>>>> 35c54e770245baeca220685c6275304c12765f57
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -81,7 +91,11 @@ namespace ETrading.Controllers
             return View(product);
         }
         
+<<<<<<< HEAD
         //[Authorize(Roles = "Admin")]
+=======
+        [Authorize(Users = "Admin")]
+>>>>>>> 35c54e770245baeca220685c6275304c12765f57
         public ActionResult Delete(int? id)
         {
             if (id == null)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -26,12 +27,20 @@ namespace ETrading.Controllers
         [HttpPost]
         public ActionResult Signup(Customer customer)
         {
-            using (ETradingEntities context = new ETradingEntities())
+            if (ModelState.IsValid)
             {
-                context.Customers.Add(customer);
-                context.SaveChanges();
+                using (ETradingEntities context = new ETradingEntities())
+                {
+                    context.Customers.Add(customer);
+                    context.SaveChanges();
+                }
+                
+
             }
+
             return RedirectToAction("Login");
+
+
         }
         public ActionResult Login()
         {
