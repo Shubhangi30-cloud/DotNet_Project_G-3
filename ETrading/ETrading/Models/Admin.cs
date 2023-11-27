@@ -18,7 +18,7 @@ namespace ETrading.Models
     {
         [Required][DisplayName("User Name")]
         public string AdminName { get; set; }
-        [Required]
+        [Required][DataType(DataType.Password)]
         public string Password { get; set; }
     }
 }
