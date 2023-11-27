@@ -1,6 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ETradingModelStoreContainer" CdmEntityContainer="ETradingEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="ETradingModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Customers">
       <EntityTypeMapping TypeName="ETradingModel.Customer">
         <MappingFragment StoreEntitySet="Customer">
@@ -10,14 +18,6 @@
           <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="AccountBalance" ColumnName="AccountBalance" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Admins">
-      <EntityTypeMapping TypeName="ETradingModel.Admin">
-        <MappingFragment StoreEntitySet="Admin">
-          <ScalarProperty Name="AdminName" ColumnName="AdminName" />
           <ScalarProperty Name="Password" ColumnName="Password" />
         </MappingFragment>
       </EntityTypeMapping>

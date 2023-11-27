@@ -19,7 +19,7 @@ namespace ETrading.Controllers
             return View(db.Vendors.ToList());
         }
 
-        [Authorize(Users ="Admin,Vendor")]
+        //[Authorize(Users ="Admin,Vendor")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -34,14 +34,14 @@ namespace ETrading.Controllers
             return View(vendor);
         }
 
-        [Authorize(Users = "Admin")]
+       // [Authorize(Users  = "Admin")]
         public ActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "VendorName,EmailId,PhoneNo,Address")] Vendor vendor)
         {
             if (ModelState.IsValid)
@@ -53,7 +53,7 @@ namespace ETrading.Controllers
 
             return View(vendor);
         }
-        [Authorize(Users = "Admin,Vendor")]
+        //[Authorize(Users  = "Admin,Vendor")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -69,7 +69,7 @@ namespace ETrading.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "VendorId,VendorName,EmailId,PhoneNo,Address")] Vendor vendor)
         {
             if (ModelState.IsValid)
@@ -81,7 +81,7 @@ namespace ETrading.Controllers
             return View(vendor);
         }
 
-        [Authorize(Users = "Admin")]
+        //[Authorize(Users = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -98,7 +98,7 @@ namespace ETrading.Controllers
 
 
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+       // [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             Vendor vendor=db.Vendors.Find(id);

@@ -9,9 +9,14 @@ warning 6002: The table/view 'ETrading.dbo.Admin' does not have a primary key de
     <Property Name="AdminName" Type="varchar" MaxLength="100" />
     <Property Name="Password" Type="varchar(max)" Nullable="false" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ETrading.dbo.Customer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Customer">
     <Key>
       <PropertyRef Name="CustomerId" />
+      <PropertyRef Name="EmailId" />
+      <PropertyRef Name="PhoneNo" />
+      <PropertyRef Name="AccountBalance" />
     </Key>
     <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CustomerName" Type="varchar" MaxLength="50" />
@@ -54,12 +59,22 @@ warning 6002: The table/view 'ETrading.dbo.Vendor' does not have a primary key d
     <Property Name="Password" Type="varchar(max)" />
   </EntityType>
   <EntityContainer Name="ETradingModelStoreContainer">
-    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Admin" EntityType="Self.Admin" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [Admin].[AdminName] AS [AdminName], 
     [Admin].[Password] AS [Password]
     FROM [dbo].[Admin] AS [Admin]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Customer" EntityType="Self.Customer" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Customer].[CustomerId] AS [CustomerId], 
+    [Customer].[CustomerName] AS [CustomerName], 
+    [Customer].[EmailId] AS [EmailId], 
+    [Customer].[PhoneNo] AS [PhoneNo], 
+    [Customer].[Address] AS [Address], 
+    [Customer].[AccountBalance] AS [AccountBalance], 
+    [Customer].[Password] AS [Password]
+    FROM [dbo].[Customer] AS [Customer]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="Product" EntityType="Self.Product" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 

@@ -19,7 +19,7 @@ namespace ETrading.Controllers
             return View(db.Customers.ToList());
         }
 
-        [Authorize(Users = "Admin")]
+       // [Authorize(Users = "Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -34,7 +34,7 @@ namespace ETrading.Controllers
             return View(customer);
         }
 
-        [Authorize(Users  = "Customer")]
+        //[Authorize(Users  = "Customer")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -50,7 +50,7 @@ namespace ETrading.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "CustomerName,EmailId,PhoneNo,Address,AccountBalance")] Customer customer)
         {
             if (ModelState.IsValid)
@@ -62,7 +62,7 @@ namespace ETrading.Controllers
             return View(customer);
         }
 
-        [Authorize(Users  = "Admin")]
+        //[Authorize(Users  = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -78,7 +78,7 @@ namespace ETrading.Controllers
         }
 
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             Customer customer = db.Customers.Find(id);

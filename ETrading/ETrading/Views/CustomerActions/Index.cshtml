@@ -1,59 +1,21 @@
-﻿@model IEnumerable<ETrading.Models.Product>
-
+﻿
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Vendorid)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BrandName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Category)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Availability)
-        </th>
-        <th></th>
-    </tr>
+<div class="Admins-container" style="height: 70%; width: 80%; margin: 0 auto; background-color: #0042f336; border: none; padding: 20px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);">
+    <h2 style="color: #ccc; text-align: center; font-family: Arial, sans-serif;">Welcome, Customer!</h2>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.ProductId)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Vendorid)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.BrandName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Category)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Price)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Availability)
-    </td>
-    <td>
-        @*@Html.ActionLink("Buy", "BuyProduct", "CustomerActions", new { /* id=item.PrimaryKey */ }) |*@
-        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-    </td>
-</tr>
-}
+    <div class='Admin-action' style="text-align: center;">
+       
+        <ul style="padding: 0;">
+            <button style="padding: 8px; background-color: #ccc; color: #fff; border: none; cursor: pointer;">
+            <li style="color: #fff; margin-bottom: 5px;">@Html.ActionLink("View Product List", "Index", "Product")</li>
+            </button>
+            </ul>
+    </div>
+</div>
 
-</table>
+

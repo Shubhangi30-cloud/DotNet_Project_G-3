@@ -14,9 +14,14 @@ warning 6002: The table/view 'ETrading.dbo.Admin' does not have a primary key de
           <Property Name="AdminName" Type="varchar" MaxLength="100" />
           <Property Name="Password" Type="varchar(max)" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ETrading.dbo.Customer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="CustomerId" />
+            <PropertyRef Name="EmailId" />
+            <PropertyRef Name="PhoneNo" />
+            <PropertyRef Name="AccountBalance" />
           </Key>
           <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CustomerName" Type="varchar" MaxLength="50" />
@@ -59,12 +64,22 @@ warning 6002: The table/view 'ETrading.dbo.Vendor' does not have a primary key d
           <Property Name="Password" Type="varchar(max)" />
         </EntityType>
         <EntityContainer Name="ETradingModelStoreContainer">
-          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Admin" EntityType="Self.Admin" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Admin].[AdminName] AS [AdminName], 
     [Admin].[Password] AS [Password]
     FROM [dbo].[Admin] AS [Admin]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Customer" EntityType="Self.Customer" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Customer].[CustomerId] AS [CustomerId], 
+    [Customer].[CustomerName] AS [CustomerName], 
+    [Customer].[EmailId] AS [EmailId], 
+    [Customer].[PhoneNo] AS [PhoneNo], 
+    [Customer].[Address] AS [Address], 
+    [Customer].[AccountBalance] AS [AccountBalance], 
+    [Customer].[Password] AS [Password]
+    FROM [dbo].[Customer] AS [Customer]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Product" EntityType="Self.Product" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -92,9 +107,19 @@ warning 6002: The table/view 'ETrading.dbo.Vendor' does not have a primary key d
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ETradingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Password" />
+          </Key>
+          <Property Name="AdminName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="CustomerId" />
+            <PropertyRef Name="EmailId" />
+            <PropertyRef Name="PhoneNo" />
+            <PropertyRef Name="AccountBalance" />
           </Key>
           <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -103,13 +128,6 @@ warning 6002: The table/view 'ETrading.dbo.Vendor' does not have a primary key d
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AccountBalance" Type="Double" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="Admin">
-          <Key>
-            <PropertyRef Name="Password" />
-          </Key>
-          <Property Name="AdminName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -140,8 +158,8 @@ warning 6002: The table/view 'ETrading.dbo.Vendor' does not have a primary key d
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="ETradingEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="Products" EntityType="Self.Product" />
           <EntitySet Name="Vendors" EntityType="Self.Vendor" />
         </EntityContainer>
@@ -151,6 +169,14 @@ warning 6002: The table/view 'ETrading.dbo.Vendor' does not have a primary key d
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ETradingModelStoreContainer" CdmEntityContainer="ETradingEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="ETradingModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="ETradingModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
@@ -160,14 +186,6 @@ warning 6002: The table/view 'ETrading.dbo.Vendor' does not have a primary key d
                 <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="AccountBalance" ColumnName="AccountBalance" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Admins">
-            <EntityTypeMapping TypeName="ETradingModel.Admin">
-              <MappingFragment StoreEntitySet="Admin">
-                <ScalarProperty Name="AdminName" ColumnName="AdminName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
               </MappingFragment>
             </EntityTypeMapping>

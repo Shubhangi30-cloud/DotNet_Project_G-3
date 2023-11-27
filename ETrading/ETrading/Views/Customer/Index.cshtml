@@ -6,9 +6,7 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -52,7 +50,7 @@
     <td>
         @Html.DisplayFor(modelItem => item.AccountBalance)
     </td>
-    <td>
+    <td style="color: #fff; width:15%; text-align: center; background-color: #fff; padding: 10px;  border-radius: 2px; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">
         @Html.ActionLink("Edit", "Edit", new { id = item.CustomerId }) |
         @Html.ActionLink("Details", "Details", new { id = item.CustomerId }) |
         @Html.ActionLink("Delete", "Delete", new { id = item.CustomerId })

@@ -164,7 +164,6 @@ D:\Github\DotNet_Project_G-3\ETrading\ETrading\obj\Debug\ETrading.csproj.CoreCom
 D:\Github\DotNet_Project_G-3\ETrading\ETrading\obj\Debug\ETrading.csproj.CopyComplete
 D:\Github\DotNet_Project_G-3\ETrading\ETrading\obj\Debug\ETrading.dll
 D:\Github\DotNet_Project_G-3\ETrading\ETrading\obj\Debug\ETrading.pdb
-<<<<<<< HEAD
 C:\Users\shubhangp\Desktop\Final_Project\DotNet_Project_G-3\ETrading\ETrading\bin\ETrading.dll.config
 C:\Users\shubhangp\Desktop\Final_Project\DotNet_Project_G-3\ETrading\ETrading\bin\ETrading.dll
 C:\Users\shubhangp\Desktop\Final_Project\DotNet_Project_G-3\ETrading\ETrading\bin\ETrading.pdb
@@ -243,10 +242,8 @@ C:\Users\shubhangp\Desktop\Final_Project\DotNet_Project_G-3\ETrading\ETrading\bi
 C:\Users\shubhangp\Desktop\Final_Project\DotNet_Project_G-3\ETrading\ETrading\bin\Newtonsoft.Json.xml
 C:\Users\shubhangp\Desktop\Final_Project\DotNet_Project_G-3\ETrading\ETrading\bin\Antlr3.Runtime.pdb
 C:\Users\shubhangp\Desktop\Final_Project\DotNet_Project_G-3\ETrading\ETrading\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\shubhangp\Desktop\Final_Project\DotNet_Project_G-3\ETrading\ETrading\obj\Debug\ETrading.csproj.AssemblyReference.cache
 C:\Users\shubhangp\Desktop\Final_Project\DotNet_Project_G-3\ETrading\ETrading\obj\Debug\ETrading.csproj.CoreCompileInputs.cache
 C:\Users\shubhangp\Desktop\Final_Project\DotNet_Project_G-3\ETrading\ETrading\obj\Debug\ETrading.csproj.CopyComplete
 C:\Users\shubhangp\Desktop\Final_Project\DotNet_Project_G-3\ETrading\ETrading\obj\Debug\ETrading.dll
 C:\Users\shubhangp\Desktop\Final_Project\DotNet_Project_G-3\ETrading\ETrading\obj\Debug\ETrading.pdb
-=======
->>>>>>> 35c54e770245baeca220685c6275304c12765f57
+C:\Users\shubhangp\Desktop\Final_Project\DotNet_Project_G-3\ETrading\ETrading\obj\Debug\ETrading.csproj.AssemblyReference.cache

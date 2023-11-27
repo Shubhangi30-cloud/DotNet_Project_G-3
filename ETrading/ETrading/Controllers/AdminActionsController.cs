@@ -10,7 +10,6 @@ namespace ETrading.Controllers
 {
     public class AdminActionsController : Controller
     {
-        
         public ActionResult Index()
         {
             return View();

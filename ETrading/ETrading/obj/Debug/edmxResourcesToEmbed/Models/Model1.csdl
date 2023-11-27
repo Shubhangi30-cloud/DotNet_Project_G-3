@@ -1,8 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ETradingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Password" />
+    </Key>
+    <Property Name="AdminName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
   <EntityType Name="Customer">
     <Key>
       <PropertyRef Name="CustomerId" />
+      <PropertyRef Name="EmailId" />
+      <PropertyRef Name="PhoneNo" />
+      <PropertyRef Name="AccountBalance" />
     </Key>
     <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -11,13 +21,6 @@
     <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="AccountBalance" Type="Double" Nullable="false" />
     <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="Admin">
-    <Key>
-      <PropertyRef Name="Password" />
-    </Key>
-    <Property Name="AdminName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -48,8 +51,8 @@
     <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityContainer Name="ETradingEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Customers" EntityType="Self.Customer" />
     <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
     <EntitySet Name="Products" EntityType="Self.Product" />
     <EntitySet Name="Vendors" EntityType="Self.Vendor" />
   </EntityContainer>

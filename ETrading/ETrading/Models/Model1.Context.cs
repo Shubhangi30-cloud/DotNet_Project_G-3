@@ -25,8 +25,8 @@ namespace ETrading.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Admin> Admins { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Vendor> Vendors { get; set; }
     }
