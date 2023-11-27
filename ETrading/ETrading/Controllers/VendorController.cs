@@ -19,7 +19,7 @@ namespace ETrading.Controllers
             return View(db.Vendors.ToList());
         }
 
-        [Authorize(Roles ="Admin,Vendor")]
+        [Authorize(Users ="Admin,Vendor")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -34,7 +34,7 @@ namespace ETrading.Controllers
             return View(vendor);
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Users = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -53,7 +53,7 @@ namespace ETrading.Controllers
 
             return View(vendor);
         }
-        [Authorize(Roles = "Admin,Vendor")]
+        [Authorize(Users = "Admin,Vendor")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -81,7 +81,7 @@ namespace ETrading.Controllers
             return View(vendor);
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Users = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

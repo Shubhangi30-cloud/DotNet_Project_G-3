@@ -21,11 +21,11 @@ namespace ETrading.Models
         public string CustomerName { get; set; }
         [Required][DataType(DataType.EmailAddress)]
         public string EmailId { get; set; }
-        //[Required][DataType(DataType.PhoneNumber)]
+        [Required][DataType(DataType.PhoneNumber)]
         public long PhoneNo { get; set; }
-        //[Required]
+        [Required]
         public string Address { get; set; }
-        //[Required][DataType(DataType.Currency)]
+        [Required][DataType(DataType.Currency)]
         public double AccountBalance { get; set; }
         [Required][DataType(DataType.Password)]
         public string Password { get; set; }

@@ -11,14 +11,25 @@ namespace ETrading.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Vendor
     {
         public int VendorId { get; set; }
+        [DisplayName("User Name")]
+        [Required]
         public string VendorName { get; set; }
+        [Required]
+        [DataType(DataType.EmailAddress)]
         public string EmailId { get; set; }
+        [Required]
+        [DataType(DataType.PhoneNumber)]
         public long PhoneNo { get; set; }
+        [Required]
         public string Address { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
     }
 }
