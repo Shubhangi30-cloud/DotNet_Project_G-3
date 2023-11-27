@@ -10,7 +10,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>UserModel</h4>
+        
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -37,6 +37,6 @@
     </div>
 }
 
-<div>
+<div style="color: #fff; width:15%; text-align: center; background-color: #fff; padding: 10px;  border-radius: 2px; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">
     @Html.ActionLink("Click here to SignUp", "Signup")
 </div>

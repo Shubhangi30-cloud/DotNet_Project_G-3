@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ETradingModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ETrading.dbo.Admin' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Password" />
+    </Key>
+    <Property Name="AdminName" Type="varchar" MaxLength="100" />
+    <Property Name="Password" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ETrading.dbo.Customer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+      <PropertyRef Name="EmailId" />
+      <PropertyRef Name="PhoneNo" />
+      <PropertyRef Name="AccountBalance" />
+    </Key>
+    <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerName" Type="varchar" MaxLength="50" />
+    <Property Name="EmailId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PhoneNo" Type="bigint" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="AccountBalance" Type="float" Nullable="false" />
+    <Property Name="Password" Type="varchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ETrading.dbo.Product' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductId" />
+      <PropertyRef Name="BrandName" />
+      <PropertyRef Name="Category" />
+      <PropertyRef Name="Price" />
+      <PropertyRef Name="Availability" />
+    </Key>
+    <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Vendorid" Type="int" />
+    <Property Name="BrandName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Category" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="Availability" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ETrading.dbo.Vendor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Vendor">
+    <Key>
+      <PropertyRef Name="VendorId" />
+      <PropertyRef Name="EmailId" />
+      <PropertyRef Name="PhoneNo" />
+    </Key>
+    <Property Name="VendorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VendorName" Type="varchar" MaxLength="50" />
+    <Property Name="EmailId" Type="varchar(max)" Nullable="false" />
+    <Property Name="PhoneNo" Type="bigint" Nullable="false" />
+    <Property Name="Address" Type="varchar(max)" />
+    <Property Name="Password" Type="varchar(max)" />
+  </EntityType>
+  <EntityContainer Name="ETradingModel1StoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Admin].[AdminName] AS [AdminName], 
+    [Admin].[Password] AS [Password]
+    FROM [dbo].[Admin] AS [Admin]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Customer" EntityType="Self.Customer" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Customer].[CustomerId] AS [CustomerId], 
+    [Customer].[CustomerName] AS [CustomerName], 
+    [Customer].[EmailId] AS [EmailId], 
+    [Customer].[PhoneNo] AS [PhoneNo], 
+    [Customer].[Address] AS [Address], 
+    [Customer].[AccountBalance] AS [AccountBalance], 
+    [Customer].[Password] AS [Password]
+    FROM [dbo].[Customer] AS [Customer]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Product" EntityType="Self.Product" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Product].[ProductId] AS [ProductId], 
+    [Product].[Vendorid] AS [Vendorid], 
+    [Product].[BrandName] AS [BrandName], 
+    [Product].[Category] AS [Category], 
+    [Product].[Price] AS [Price], 
+    [Product].[Availability] AS [Availability]
+    FROM [dbo].[Product] AS [Product]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Vendor" EntityType="Self.Vendor" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Vendor].[VendorId] AS [VendorId], 
+    [Vendor].[VendorName] AS [VendorName], 
+    [Vendor].[EmailId] AS [EmailId], 
+    [Vendor].[PhoneNo] AS [PhoneNo], 
+    [Vendor].[Address] AS [Address], 
+    [Vendor].[Password] AS [Password]
+    FROM [dbo].[Vendor] AS [Vendor]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
